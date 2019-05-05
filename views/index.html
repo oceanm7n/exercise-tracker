@@ -1,0 +1,85 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="container" id='container'>
+            <h1 class='text-primary text-center'>Exercise tracker</h1>
+            <br>
+            <div class="row justify-content-around">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Create a new user</h4>
+                            <form action="/api/exercise/new-user" method="post">
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input
+                                        autocomplete="off"
+                                        name='uname'
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter username"
+                                        required>
+                                    <small class="form-text text-muted">POST /api/exercise/new-user</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <hr>
+                                <button
+                                    type="button"
+                                    onclick="window.location.href='/api/exercise/users'"
+                                    class="btn btn-link">See all users</button>
+                                <hr>
+                                <button
+                                    type="button"
+                                    onclick="window.location.href='/api/exercise/delete-all-users'"
+                                    class="btn btn-link">Delete all users</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Add exercises</h4>
+                            <form action="/api/exercise/add" method="post">
+                                <div class="form-group">
+                                    <label>User ID</label>
+                                    <input type="text" name="uid" class="form-control" placeholder="Enter userId" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Brief Description</label>
+                                    <input
+                                        type="text"
+                                        name="desc"
+                                        class="form-control"
+                                        placeholder="Enter a brief description"
+                                        required></div>
+                                    <div class="form-group">
+                                        <label>Duration (mins)</label>
+                                        <input type="number" name="duration" class="form-control" placeholder="Enter userId" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <input type="text" name="date" class="form-control" placeholder="YYYY-MM-DD">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
