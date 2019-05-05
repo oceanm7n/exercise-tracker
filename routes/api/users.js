@@ -16,7 +16,7 @@ router.get('/users', (req, res) => {
 
 // POST /api/exercise/new-user : Create a new user @access
 router.post('/new-user', (req, res) => {
-    newUsername = req
+    const newUsername = req
         .body
         .uname
         .replace(/^\s+|\s+$/g, '');
@@ -32,7 +32,7 @@ router.post('/new-user', (req, res) => {
                         .save()
                         .then((doc) => res.json({username: doc.username, '_id': doc._id}))
                         .catch(err => {
-                            console.log(error);
+                            console.log(err);
                             res.json({'status': 'error'})
                             // Username is already in the DB => reject
                         })
